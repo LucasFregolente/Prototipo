@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ</title>
+    <link rel="stylesheet" href="../CSS/styleHome.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span>&#127760; XYZ</span>
+            </div>
+            <nav>
+                <a href="./serviceRequest.html">Serviços</a>
+                <button id="loginStatus">Entrar</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="content">
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-text">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda at sequi, aspernatur veritatis nostrum ullam. Totam tempore, commodi qui necessitatibus sint recusandae dolorum incidunt ab minima sed, quia porro nobis!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="card small">
+                <div class="card-image"></div>
+                <div class="card-text">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque dicta quibusdam maiores molestias at repudiandae inventore, quasi corrupti, impedit repellendus voluptatum voluptas odit earum laborum a sed ducimus facilis temporibus.</p>
+                    <button class="button">Aproveite!</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p><strong>Contato:</strong> (44) 99999-9999</p>
+                <p><strong>Email:</strong> contato@xyz.com</p>
+                <p><strong>Localização:</strong> Rua Exemplo, 123, Cidade, Estado</p>
+            </div>
+            <p class="footer-rights">© 2024 XYZ. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase Authentication Status -->
+    <script type="module">
+        import { auth } from '../JS/firebaseConfig.js';
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+
+        // Atualiza o estado do login no botão "Entrar"
+        onAuthStateChanged(auth, (user) => {
+            const loginStatusButton = document.getElementById('loginStatus');
+            if (user) {
+                loginStatusButton.textContent = "Minha conta";
+                loginStatusButton.onclick = () => window.location.href = "account.html";
+            } else {
+                loginStatusButton.textContent = "Entrar";
+                loginStatusButton.onclick = () => window.location.href = "../index.html";
+            }
+        });
+    </script>
+</body>
+</html>

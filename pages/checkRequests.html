@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ</title>
+    <link rel="stylesheet" href="../CSS/styleCheckRequests.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span>&#127760; XYZ</span>
+            </div>
+            <nav>
+                <a href="./home.html">Início</a>
+                <a href="./account.html">Minha Conta</a>
+                <a href="../index.html">Sair da Conta</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Propostas Pendentes -->
+        <section class="proposal-section">
+            <h2>Propostas Pendentes</h2>
+            <div id="pendingProposals" class="proposal-list"></div>
+        </section>
+    
+        <!-- Propostas Aprovadas -->
+        <section class="proposal-section">
+            <h2>Propostas Aprovadas</h2>
+            <div id="approvedProposals" class="proposal-list"></div>
+        </section>
+    
+        <!-- Propostas Recusadas -->
+        <section class="proposal-section">
+            <h2>Propostas Recusadas</h2>
+            <div id="rejectedProposals" class="proposal-list"></div>
+        </section>
+    </main>
+    
+
+    <!-- Modal de Detalhes da Proposta -->
+    <div id="proposalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Detalhes da Proposta</h3>
+            <div id="proposalDetails">
+                <!-- Detalhes da proposta preenchidos dinamicamente -->
+            </div>
+            <!-- Botão para aprovar a proposta -->
+            <button id="approveProposalBtn">Aprovar Proposta</button>
+        </div>
+    </div>
+
+
+    <!-- Script de Interação com Firebase -->
+    <script type="module" src="../JS/checkRequests.js"></script>
+</body>
+</html>

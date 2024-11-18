@@ -1,0 +1,299 @@
+/* === Estilos Globais === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f1f4f8;
+    color: #333;
+}
+
+main {
+    flex: 1;
+}
+
+/* === Navbar === */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3DB2FF;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    color: #fff;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar nav a:hover {
+    color: #f0f8ff;
+}
+
+/* === Cabeçalho da Página === */
+.page-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #3DB2FF;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+.page-header p {
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+/* === Lista de Contratos === */
+.contract-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1.5rem; /* Adiciona espaçamento entre os itens */
+}
+
+.contract-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 350px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.contract-item:hover {
+    transform: translateY(-5px);
+}
+
+.contract-item h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #3DB2FF;
+}
+
+.contract-item p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.contract-item button {
+    background-color: #3DB2FF;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 1rem;
+}
+
+.contract-item button:hover {
+    background-color: #007bff;
+}
+
+.modal-content {
+    position: relative;
+    max-height: 80vh; /* Altura máxima do modal como 80% da janela */
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 90%; /* Ajuste conforme necessário */
+    max-width: 800px; /* Largura máxima */
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Botão de Fechar */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Detalhes do Contrato */
+.contract-info p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.contract-info p strong {
+    color: #333;
+}
+
+/* Seção de Ações */
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Botões de Ação */
+.modal-actions .btn-sign,
+#printContractButton {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: #fff;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.modal-actions .btn-sign:hover,
+#printContractButton:hover {
+    background-color: #45a049;
+}
+
+#printContractButton {
+    display: block;
+    background-color: #007bff;
+    color: #fff;
+}
+
+#printContractButton:hover {
+    background-color: #0056b3;
+}
+
+/* Mensagem de Status */
+#contractStatusMessage {
+    margin-top: 1rem;
+    color: #4CAF50;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* === Formulários === */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group input:focus {
+    border-color: #3DB2FF;
+    outline: none;
+}
+
+/* === Botões Globais === */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-sign, .btn-confirm {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.btn-reject {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn:hover {
+    filter: brightness(0.9);
+}
+
+.contract-clauses {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.contract-clauses h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.contract-clauses p {
+    margin-bottom: 5px;
+}
+
+/* === Rodapé === */
+footer {
+    background-color: #3DB2FF;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}

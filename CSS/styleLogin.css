@@ -1,0 +1,90 @@
+/* Reseta o estilo padrão dos navegadores */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para o corpo da página */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+}
+
+/* Estilo do formulário */
+form {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Espaçamento entre os campos do formulário */
+form div {
+    margin-bottom: 1.5rem;
+}
+
+/* Estilo dos rótulos */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo dos campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Estilo do link "Esqueci a Senha" */
+.link-to-page {
+    font-size: 0.875rem; 
+    color: black;
+    display: inline-block;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+.link-to-page:hover {
+    color:  #007bff;
+}
+
+/* Estilo dos botões */
+button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Cor do botão no hover */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo especial para o botão Registrar */
+button:nth-of-type(2) {
+    background-color: #6c757d;
+}
+
+button:nth-of-type(2):hover {
+    background-color: #565e64;
+}

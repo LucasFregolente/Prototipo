@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ</title>
+    <link rel="stylesheet" href="../CSS/styleServiceRequest.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span>&#127760; XYZ</span>
+            </div>
+            <nav>
+                <a href="./home.html">Início</a>
+                <a href="./account.html">Minha Conta</a>
+                <a href="../index.html">Sair da Conta</a>              
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="service-list-section">
+            <h2>Serviços Disponíveis</h2>
+            <div id="serviceList" class="service-list">
+                <!-- Serviços serão carregados dinamicamente aqui -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Formulário Modal de Solicitação -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Solicitar Serviço</h3>
+            <form id="requestForm">
+                <input type="hidden" id="serviceId" name="serviceId">
+
+                <label for="clientName">Nome Completo</label>
+                <input type="text" id="clientName" name="clientName" required>
+
+                <label for="cpfCnpj">CPF / CNPJ</label>
+                <input type="text" id="cpfCnpj" name="cpfCnpj" required>
+
+                <label for="contact">Telefone / Contato</label>
+                <input type="text" id="contact" name="contact" required>
+
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" required>
+
+                <label for="street">Rua</label>
+                <input type="text" id="street" name="street" required>
+
+                <label for="number">Número</label>
+                <input type="text" id="number" name="number" required>
+
+                <label for="neighborhood">Bairro</label>
+                <input type="text" id="neighborhood" name="neighborhood" required>
+
+                <label for="city">Cidade</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="state">Estado</label>
+                <input type="text" id="state" name="state" required>
+
+                <label for="additionalInfo">Informações Adicionais</label>
+                <textarea id="additionalInfo" name="additionalInfo" placeholder="Descreva detalhes específicos da sua solicitação"></textarea>
+
+                <button type="submit">Confirmar Solicitação</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script de Interação com Firebase -->
+    <script type="module" src="../JS/serviceRequest.js"></script>
+</body>
+</html>
+  

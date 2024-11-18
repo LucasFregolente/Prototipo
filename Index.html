@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ</title>
+    <link rel="stylesheet" href="CSS/styleLogin.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <form id="loginForm">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="seuemail@email.com" required>
+        </div>
+        
+        <div>
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="senha" minlength="6" required>
+            <a href="#" class="link-to-page">Esqueceu a senha?</a>
+        </div>
+
+        <div>
+            <button type="submit">Entrar</button>
+        </div>
+        <div>
+            <button type="button" onclick="window.location.href='pages/registerClient.html'">Registre-se</button>
+        </div>
+    </form>
+
+    <script type="module">
+        import { auth } from './JS/firebaseConfig.js';
+        import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+
+        document.getElementById('loginForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("Login realizado com sucesso!");
+                    window.location.href = "pages/home.html"; 
+                })
+                .catch((error) => {
+                    console.error("Erro ao logar:", error.message);
+                    alert("Erro ao logar: " + error.message);
+                });
+        });
+    </script>
+</body>
+</html>

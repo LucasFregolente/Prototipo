@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ</title>
+    <link rel="stylesheet" href="../CSS/styleLogin.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <form id="registerForm">
+        <h2>Criar Conta</h2>
+        
+        <div>
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="seuemail@email.com" required>
+        </div>
+        
+        <div>
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="senha" minlength="6" required>
+        </div>
+        
+        <div>
+            <label for="confirmPassword">Confirmar Senha</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="confirme sua senha" minlength="6" required>
+        </div>
+
+        <div>
+            <button type="submit">Registrar</button>
+        </div>
+        
+        <div>
+            <p>Já tem uma conta? <a href="../index.html" class="link-to-page">Faça login aqui</a></p>
+        </div>
+    </form>
+
+    <script type="module">
+        import { auth, db } from '../JS/firebaseConfig.js';
+        import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+        import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+    
+        document.getElementById('registerForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+    
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem.");
+                return;
+            }
+    
+            try {
+                // Cria o usuário com email e senha
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+    
+                // Atualiza o perfil do usuário com o nome fornecido
+                await updateProfile(user, {
+                    displayName: name,
+                });
+    
+                // Salva o tipo de usuário "cliente" no Firestore
+                await setDoc(doc(db, "users", user.uid), {
+                    email: user.email,
+                    displayName: name,
+                    userType: "cliente"  // Define o tipo de usuário como "cliente"
+                });
+    
+                alert("Usuário registrado com sucesso!");
+                window.location.href = "../index.html";
+            } catch (error) {
+                console.error("Erro ao registrar:", error.message);
+                alert("Erro ao registrar: " + error.message);
+            }
+        });
+    </script>   
+</body>
+</html>

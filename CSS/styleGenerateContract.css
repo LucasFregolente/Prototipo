@@ -1,0 +1,260 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do Corpo */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #3DB2FF;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 25px;
+    color: #fff;
+}
+
+.navbar nav a {
+    margin-right: 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Seção de Propostas */
+.contract-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.proposal-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.proposal-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 300px;
+    text-align: left;
+}
+
+.proposal-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.proposal-item p {
+    margin: 0.5rem 0;
+}
+
+button.view-details-btn {
+    background-color: #3DB2FF;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.view-details-btn:hover {
+    background-color: #007bff;
+}
+
+/* Modal de Detalhes do Contrato */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    overflow-y: auto; /* Permite rolar o conteúdo caso seja muito longo */
+    max-height: 90vh; /* Limita a altura do modal */
+}
+
+.close-button {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Seção de Detalhes da Proposta */
+.proposal-details {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.proposal-details p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Seção de Cláusulas */
+.contract-clauses {
+    margin-bottom: 1.5rem;
+}
+
+.contract-clauses p {
+    background-color: #f9f9f9;
+    padding: 0.8rem;
+    border-left: 3px solid #3DB2FF;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Estilo do Formulário de Contrato */
+#contractForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+#contractForm label {
+    font-weight: bold;
+    color: #555;
+}
+
+#contractForm input[type="text"],
+#contractForm input[type="number"],
+#contractForm textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#contractForm textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+/* Botão de Envio */
+#contractForm button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#contractForm button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do botão de cancelar contrato */
+.cancel-button {
+    background-color: #ff4d4d; /* Vermelho claro para indicar uma ação de cancelamento */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 14px; /* Tamanho do texto */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão ao passar o mouse */
+    margin-top: 10px; /* Espaçamento superior para separação */
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+/* Estilo do botão ao passar o mouse */
+.cancel-button:hover {
+    background-color: #e60000; /* Vermelho mais escuro ao passar o mouse */
+}
+
+#contractStatusSections {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#contractStatusSections h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contract-list {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.contract-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.contract-item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contract-item button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 90%;
+    }
+
+    .proposal-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}

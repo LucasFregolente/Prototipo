@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ</title>
+    <link rel="stylesheet" href="../CSS/styleClientContracts.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span>&#127760; XYZ</span>
+            </div>
+            <nav>
+                <a href="./home.html">Início</a>
+                <a href="../index.html">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="page-header">
+            <h1>Meus Contratos</h1>
+            <p>Aqui você pode visualizar seus contratos e assiná-los.</p>
+        </section>
+
+        <!-- Lista de Contratos -->
+        <section id="contractList" class="contract-list">
+            <!-- Os contratos serão carregados dinamicamente aqui -->
+        </section>
+
+    <!-- Modal para Detalhes do Contrato -->
+    <div id="contractModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Detalhes do Contrato</h2>
+            <div id="contractDetails">
+                <p><strong>ID do Contrato:</strong> <span id="contractId"></span></p>
+                <p><strong>Notas Adicionais:</strong> <span id="additionalNotes"></span></p>
+                <p><strong>Condições de Pagamento:</strong> <span id="paymentConditions"></span></p>
+                <p><strong>Prazo do Contrato:</strong> <span id="contractDeadline"></span></p>
+                <p><strong>Valor Final:</strong> R$ <span id="finalValue"></span></p>
+                <p><strong>Gerado Em:</strong> <span id="generatedAt"></span></p>
+                <hr>
+                <h3>Assinaturas</h3>
+                <p><strong>Assinado Pelo Administrador:</strong></p>
+                <p><strong>Data:</strong> <span id="companySignedAt"></span></p>
+                <p><strong>Nome:</strong> <span id="companySignedBy"></span></p>
+                <p><strong>Assinado Pelo Cliente:</strong></p>
+                <p><strong>Data:</strong> <span id="clientSignedAt"></span></p>
+                <p><strong>Nome:</strong> <span id="clientSignedBy"></span></p>
+            </div>
+
+            <!-- Cláusulas padrão do contrato -->
+            <div class="contract-clauses">
+                <h4>Cláusulas do Contrato</h4>
+                <p>1. O contratante se compromete a realizar o pagamento de acordo com as condições definidas neste contrato.</p>
+                <p>2. O contratante e o contratado devem respeitar o prazo de execução definido.</p>
+                <p>3. O descumprimento de qualquer cláusula pode resultar em penalidades conforme legislação vigente.</p>
+                <p>4. O serviço será prestado mensalmente, sendo o pagamento efetuado até o quinto dia útil de cada mês.</p>
+                <p>5. Em caso de inadimplência, será cobrada multa de 2% sobre o valor devido, além de juros de mora de 0,1% ao dia.</p>
+                <p>6. O contratado se compromete a garantir a qualidade e a continuidade do serviço durante todo o período de vigência do contrato.</p>
+                <p>7. O contratante deve notificar o contratado sobre quaisquer problemas ou interrupções no serviço em até 48 horas após a ocorrência.</p>
+                <p>8. A rescisão antecipada do contrato deve ser comunicada com antecedência mínima de 30 dias e está sujeita a multa de 20% do valor restante do contrato.</p>
+                <p>9. Este contrato terá renovação automática ao final de cada período de 12 meses, salvo manifestação contrária de uma das partes, com 30 dias de antecedência.</p>
+            </div>
+
+            <div id="contractStatusMessage"></div>
+            <div id="clientSignatureSection" style="display: none;">
+                <button onclick="openSignatureModal()">Assinar</button>
+            </div>
+            <button id="printContractButton" style="display: none;" onclick="printContract()">Imprimir Contrato</button>
+        </div>
+    </div>
+
+
+        <!-- Modal para Assinatura -->
+        <div id="signatureModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <button class="close-button" onclick="closeSignatureModal()">×</button>
+                <h2>Assinar Contrato</h2>
+                <form id="signatureForm">
+                    <div class="form-group">
+                        <label for="clientName">Nome Completo</label>
+                        <input 
+                            type="text" 
+                            id="clientName" 
+                            name="clientName" 
+                            required 
+                            placeholder="Digite seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientCpfCnpj">CPF/CNPJ</label>
+                        <input 
+                            type="text" 
+                            id="clientCpfCnpj" 
+                            name="clientCpfCnpj" 
+                            required 
+                            placeholder="Digite seu CPF ou CNPJ">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientEmail">E-mail</label>
+                        <input 
+                            type="email" 
+                            id="clientEmail" 
+                            name="clientEmail" 
+                            required 
+                            placeholder="Digite seu e-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPassword">Senha</label>
+                        <input 
+                            type="password" 
+                            id="clientPassword" 
+                            name="clientPassword" 
+                            required 
+                            placeholder="Digite sua senha">
+                    </div>
+                    <button 
+                        type="button" 
+                        class="btn-confirm" 
+                        onclick="submitSignature()">Confirmar Assinatura</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2024 XYZ. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Inclusão da biblioteca html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- Seu script JavaScript -->
+    <script type="module" src="../JS/clientContracts.js"></script>
+</body>
+</html>

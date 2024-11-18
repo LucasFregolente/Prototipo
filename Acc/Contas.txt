@@ -1,0 +1,19 @@
+
+Conta Admin
+ 
+login: adiministradorcrmuem@gmail.com
+senha: crmuem123
+
+Conta Comercial
+
+login: comercialcrmuem@gmail.com
+senha: crmuem123
+
+Conta Cliente
+
+login: clientecrmuem@gmail.com
+senha: crmuem123
+
+Conta NoReplay
+login: noreplaycrmuem@gmail.com
+senha: crmuem123

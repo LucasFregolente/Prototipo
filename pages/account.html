@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ</title>
+    <link rel="stylesheet" href="../CSS/styleAccount.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span>&#127760; XYZ</span>
+            </div>
+            <nav>
+                <a href="./home.html">Início</a>
+                <a href="./serviceRequest.html">Serviços</a>
+                <a href="../index.html">Sair da Conta</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="account-content">
+
+        <!-- Perfil do Usuário -->
+        <section class="profile-card">
+            <div class="profile-image">
+                <img src="../img/profile-placeholder.png" alt="Usuário">
+            </div>
+            <h2 id="userName">Nome do Usuário</h2>
+            <p id="userEmail">email@exemplo.com</p>
+            <button class="btn">Alterar senha</button>
+        </section>
+        
+        <!-- Controles Administrativos -->
+        <section id="adminControls" style="display: none;">
+            <h3>Gerenciamento de Usuários</h3>
+            <button id="btnContracts" onclick="window.location.href='approveContracts.html'">
+                Contratos para Aprovação
+                <span class="notification-dot" id="contractsAdminDot" style="display: none;"></span>
+            </button>            
+            <button id="btnAddCommercialUser" onclick="window.location.href='registerCommercial.html'">Adicionar Usuário Comercial</button>
+            <button id="btnAddAdminUser" onclick="window.location.href='registerAdmin.html'">Adicionar Usuário ADM</button>
+            <button id="btnAddProductAdmin" onclick="window.location.href='registerProducts.html'">Adicionar Produto</button>
+        </section>
+
+        <!-- Controles Comerciais -->
+        <section id="commercialControls" style="display: none;">
+            <h3>Gerenciamento de Propostas e Contratos</h3>
+            <button id="btnPendingProposals" onclick="window.location.href='requestsView.html'">
+                Clientes aguardando propostas
+                <span class="notification-dot" id="proposalsDot" style="display: none;"></span>
+            </button>
+            <button id="btnPendingContracts" onclick="window.location.href='generateContract.html'">
+                Clientes aguardando contratos
+                <span class="notification-dot" id="contractsDot" style="display: none;"></span>
+            </button>
+        </section>
+
+        <!-- Controle do Cliente -->
+        <section id="clientControls" style="display: none;">
+            <h3>Controle de Propostas</h3>
+            <button id="btnApprovedProposals" onclick="window.location.href='checkRequests.html'">
+                Propostas aguardando aprovação
+                <span class="notification-dot" id="approvalDotProposals" style="display: none;"></span>
+            </button>
+            <button id="btnContractsClientes" onclick="window.location.href='clientContracts.html'">
+                Meus contratos
+                <span class="notification-dot" id="approvalDotContracts" style="display: none;"></span>
+            </button>
+        </section>
+
+
+        <!-- Formulário de Informações do Usuário -->
+        <section id="userFormSection" class="user-info" style="display: none;">
+            <form id="userForm">
+                <label>Nome Completo do Responsável</label>
+                <input type="text" id="fullName" placeholder="Nome Completo do Responsável">
+
+                <label>CPF / CNPJ</label>
+                <input type="text" id="cpfCnpj" placeholder="CPF / CNPJ">
+
+                <label>Telefone</label>
+                <input type="text" id="phone" placeholder="Telefone">
+
+                <label>CEP</label>
+                <input type="text" id="cep" placeholder="CEP">
+
+                <label>Rua</label>
+                <input type="text" id="street" placeholder="Rua">
+
+                <label>Número</label>
+                <input type="text" id="number" placeholder="Número">
+
+                <label>Bairro</label>
+                <input type="text" id="neighborhood" placeholder="Bairro">
+
+                <label>Cidade</label>
+                <input type="text" id="city" placeholder="Cidade">
+
+                <label>Estado</label>
+                <input type="text" id="state" placeholder="Estado">
+
+                <button type="submit" class="btn-green">Atualizar dados</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2024 XYZ. Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module" src="../JS/account.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ</title>
+    <link rel="stylesheet" href="../CSS/styleGenerateContract.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span>&#127760; XYZ</span>
+            </div>
+            <nav>
+                <a href="./home.html">Início</a>
+                <a href="./account.html">Minha Conta</a>
+                <a href="../index.html">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="contract-section">
+            <h2>Propostas Aprovadas</h2>
+            <div id="proposalList" class="proposal-list">
+                <!-- Propostas aprovadas serão carregadas aqui -->
+            </div>            
+        </section>
+
+       <!-- Modal para Gerar Contrato -->
+        <div id="contractModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h3>Detalhes do Contrato</h3>
+                
+                <!-- Seção de Dados da Proposta -->
+                <h4>Conteúdo aprovado na proposta</h4>
+                <div class="proposal-details">
+                    <h4>Dados da Proposta</h4>
+                    <p><strong>Cliente:</strong> <span id="proposalClientName"></span></p>
+                    <p><strong>Valor por Máquina:</strong> R$ <span id="proposalMachinePrice"></span></p>
+                    <p><strong>Mensalidade:</strong> R$ <span id="proposalMonthlyFee"></span></p>
+                    <p><strong>Valor Total:</strong> R$ <span id="proposalTotalPrice"></span></p>
+                    <p><strong>Formas de Pagamento:</strong> <span id="proposalPaymentMethods"></span></p>
+                </div>
+                
+                <!-- Cláusulas padrão do contrato -->
+                <div class="contract-clauses">
+                    <h4>Cláusulas do Contrato</h4>
+                    <p>1. O contratante se compromete a realizar o pagamento de acordo com as condições definidas neste contrato.</p>
+                    <p>2. O contratante e o contratado devem respeitar o prazo de execução definido.</p>
+                    <p>3. O descumprimento de qualquer cláusula pode resultar em penalidades conforme legislação vigente.</p>
+                    <p>4. O serviço será prestado mensalmente, sendo o pagamento efetuado até o quinto dia útil de cada mês.</p>
+                    <p>5. Em caso de inadimplência, será cobrada multa de 2% sobre o valor devido, além de juros de mora de 0,1% ao dia.</p>
+                    <p>6. O contratado se compromete a garantir a qualidade e a continuidade do serviço durante todo o período de vigência do contrato.</p>
+                    <p>7. O contratante deve notificar o contratado sobre quaisquer problemas ou interrupções no serviço em até 48 horas após a ocorrência.</p>
+                    <p>8. A rescisão antecipada do contrato deve ser comunicada com antecedência mínima de 30 dias e está sujeita a multa de 20% do valor restante do contrato.</p>
+                    <p>9. Este contrato terá renovação automática ao final de cada período de 12 meses, salvo manifestação contrária de uma das partes, com 30 dias de antecedência.</p>
+                </div>
+
+                <!-- Formulário para Gerar Contrato -->
+                <h4>Confirme os dados que serão colocados no contrato</h4>
+                <form id="contractForm">
+                    <div>
+                        <label for="finalValue">Valor Final:</label>
+                        <input type="number" id="finalValue" name="finalValue" required>
+                    </div>
+                    <div>
+                        <label for="paymentConditions">Condições de Pagamento:</label>
+                        <input type="text" id="paymentConditions" name="paymentConditions">
+                    </div>
+                
+                    <div>
+                        <label for="monthlyFee">Mensalidade:</label>
+                        <input type="number" id="monthlyFee" name="monthlyFee" step="0.01">
+                    </div>
+                    <div>
+                        <label for="installationCost">Custo de Instalação:</label>
+                        <input type="number" id="installationCost" name="installationCost" step="0.01">
+                    </div>
+                
+                    <div>
+                        <label for="contractDeadline">Prazo do Contrato:</label>
+                        <input type="date" id="contractDeadline" name="contractDeadline">
+                    </div>
+                    <div>
+                        <label for="additionalNotes">Notas Adicionais:</label>
+                        <textarea id="additionalNotes" name="additionalNotes"></textarea>
+                    </div>
+                    <button type="submit">Enviar Contrato</button>
+                </form>
+                
+            </div>
+        </div>
+
+        <div id="contractStatusSections">
+            <h2>Contratos por Status</h2>
+            <div id="pendingContracts">
+                <h3>Pendentes de Validação</h3>
+                <div class="contract-list"></div>
+            </div>
+            <div id="signedContracts">
+                <h3>Assinados</h3>
+                <div class="contract-list"></div>
+            </div>
+            <div id="bothSignedContracts">
+                <h3>Assinados por Ambos</h3>
+                <div class="contract-list"></div>
+            </div>
+            <div id="rejectedContracts">
+                <h3>Contratos Rejeitados</h3>
+                <div class="contract-list"></div>
+            </div>
+        </div>
+        
+
+    </main>
+
+    <!-- Script de Interação com Firebase -->
+    <script type="module" src="../JS/generateContract.js"></script>
+</body>
+</html>
